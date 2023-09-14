@@ -3,9 +3,8 @@ import JobCard from "./JobCard";
 import JoblyApi from "./api";
 import SearchBar from "./SearchBar";
 const Jobs = () => {
-    const INITIAL_STATE = "";
     const [jobs, setJobs] = useState([]);
-    const [jobsSearchData, setJobsSearchData] = useState(INITIAL_STATE);
+    const [jobsSearchData, setJobsSearchData] = useState("");
 
     async function getJobsData() {
         let jobsData;

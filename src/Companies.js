@@ -6,9 +6,8 @@ import JoblyApi from "./api";
 import SearchBar from "./SearchBar";
 
 const Companies = () => {
-    const INITIAL_STATE = "";
     const [companies, setCompanies] = useState([]);
-    const [companySearchData, setCompanySearchData] = useState(INITIAL_STATE);
+    const [companySearchData, setCompanySearchData] = useState("");
 
     async function getCompaniesData() {
         let companiesData;

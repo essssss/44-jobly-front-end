@@ -18,6 +18,9 @@ const Navbar = () => {
             <NavLink exact to="/profile">
                 Profile
             </NavLink>
+            <NavLink exact to="/sign-out">
+                Sign Out
+            </NavLink>
         </nav>
     );
 };

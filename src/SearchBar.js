@@ -13,6 +13,7 @@ const SearchBar = ({ searchData, setSearchData }) => {
                 <label htmlFor="term">Term:</label>
                 <input
                     id="term"
+                    autoComplete="off"
                     required={true}
                     type="text"
                     name="term"
