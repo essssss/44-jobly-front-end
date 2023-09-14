@@ -12,9 +12,12 @@ const Navbar = () => {
             <NavLink exact to="/jobs">
                 Jobs
             </NavLink>
-            {/* <NavLink exact to="/profile">
+            <NavLink exact to="/login">
+                Login/Signup
+            </NavLink>
+            <NavLink exact to="/profile">
                 Profile
-            </NavLink> */}
+            </NavLink>
         </nav>
     );
 };

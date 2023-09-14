@@ -5,6 +5,7 @@ import Jobs from "./Jobs";
 import Home from "./Home";
 import Navbar from "./NavBar";
 import { BrowserRouter, Route } from "react-router-dom";
+import Company from "./Company";
 
 function App() {
     return (
@@ -17,6 +18,25 @@ function App() {
                     </Route>
                     <Route exact path="/jobs">
                         <Jobs />
+                    </Route>
+                    <Route path="/companies/:handle">
+                        <Company />
+                    </Route>
+                    <Route exacth path="/login">
+                        <div>
+                            <p>login!</p>
+                            <p>Want to sign up?</p>
+                        </div>
+                    </Route>
+                    <Route exact path="/signup">
+                        <div>
+                            <p>sign up!</p>
+                        </div>
+                    </Route>
+                    <Route path="/profile">
+                        <div>
+                            <p>This is you!</p>
+                        </div>
                     </Route>
                     <Route exact path="/">
                         <Home />
