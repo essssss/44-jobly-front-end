@@ -62,17 +62,46 @@ class JoblyApi {
         return token;
     }
 
+    /** Get full user details from decoded username */
     static async getUserInfo(username) {
         let res = await this.request(`users/${username}`);
         return res.user;
     }
+
+    /** sign up a new user */
+    static async signUp(newUserData) {
+        let token = await this.request("auth/register", newUserData, "post");
+        return token;
+    }
+    /** edit a user's details */
+    static async editProfile(username, userData) {
+        let res = await this.request(`users/${username}`, userData, "patch");
+        return res;
+    }
+
+    /** Apply to a job */
+    static async applyToJob(username, jobId) {
+        let res = await this.request(
+            `users/${username}/jobs/${jobId}`,
+            {},
+            "post"
+        );
+        console.log(jobId);
+        return res;
+    }
+
+    static async getJobById(id) {
+        let res = await this.request(`jobs/${id}`);
+        return res;
+    }
+
     // obviously, you'll add a lot here ...
 }
 
 // for now, put token ("testuser" / "password" on class)
-JoblyApi.token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
-    "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
-    "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+// JoblyApi.token =
+//     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
+//     "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
+//     "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
 
 export default JoblyApi;

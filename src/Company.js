@@ -3,7 +3,7 @@ import JobCard from "./JobCard";
 import { useParams } from "react-router-dom";
 import JoblyApi from "./api";
 
-const Company = () => {
+const Company = ({ currentUser, applyToJob, currentUserApplications }) => {
     const [company, setCompany] = useState(null);
     const { handle } = useParams();
 
@@ -29,6 +29,12 @@ const Company = () => {
                         {company.jobs.map((j) => (
                             <li key={j.id}>
                                 <JobCard
+                                    id={j.id}
+                                    currentUserApplications={
+                                        currentUserApplications
+                                    }
+                                    applyToJob={applyToJob}
+                                    currentUser={currentUser}
                                     title={j.title}
                                     salary={j.salary}
                                     equity={j.equity}

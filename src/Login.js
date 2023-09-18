@@ -12,11 +12,15 @@ const Login = ({ login }) => {
             [name]: value,
         }));
     };
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        login(formData);
-        history.push("/profile");
-        // setFormData(INITIAL_STATE);
+        try {
+            await login(formData);
+            history.push("/profile");
+        } catch (error) {
+            // Handle login error here, such as displaying an error message
+            console.error("Login error:", error);
+        }
     };
     return (
         <div>

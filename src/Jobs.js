@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import JobCard from "./JobCard";
 import JoblyApi from "./api";
 import SearchBar from "./SearchBar";
-const Jobs = () => {
+const Jobs = ({ currentUser, applyToJob, currentUserApplications }) => {
     const [jobs, setJobs] = useState([]);
     const [jobsSearchData, setJobsSearchData] = useState("");
 
@@ -14,7 +14,6 @@ const Jobs = () => {
               }))
             : (jobsData = await JoblyApi.getJobs());
         setJobs(jobsData);
-        console.log(jobsData);
     }
 
     useEffect(() => {
@@ -33,6 +32,12 @@ const Jobs = () => {
                     jobs.map((job) => (
                         <li key={job.id}>
                             <JobCard
+                                currentUserApplications={
+                                    currentUserApplications
+                                }
+                                applyToJob={applyToJob}
+                                username={currentUser.username}
+                                id={job.id}
                                 title={job.title}
                                 companyName={job.companyName}
                                 companyHandle={job.companyHandle}

@@ -1,7 +1,17 @@
 import "./JobCard.css";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 
-const JobCard = ({ title, salary, equity, companyName, companyHandle }) => {
+const JobCard = ({
+    currentUserApplications,
+    applyToJob,
+    username,
+    id,
+    title,
+    salary,
+    equity,
+    companyName,
+    companyHandle,
+}) => {
     return (
         <div className="JobCard">
             <h4>{title}</h4>
@@ -18,6 +28,17 @@ const JobCard = ({ title, salary, equity, companyName, companyHandle }) => {
                     <small className="JobCardEquity">|| EQUITY:{equity}</small>
                 )}
             </p>
+            {!currentUserApplications.includes(id) ? (
+                <button
+                    onClick={() => {
+                        applyToJob(id);
+                    }}
+                >
+                    Apply to this job
+                </button>
+            ) : (
+                <h4>Application pending</h4>
+            )}
         </div>
     );
 };
